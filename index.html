@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — UTCI Alert</title>
+  <meta name="description" content="Privacy Policy for UTCI Alert — a heat-stress alerting app for outdoor workers, delivery riders, and farmers. Learn how we handle your data." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Privacy Policy — UTCI Alert" />
+  <meta property="og:description" content="Learn how UTCI Alert collects, uses, and protects your data." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --clr-bg:           #0d0f14;
+      --clr-surface:      #13161d;
+      --clr-card:         #1a1d27;
+      --clr-border:       rgba(255,255,255,0.07);
+      --clr-border-glow:  rgba(255,107,53,0.25);
+      --clr-primary:      #FF6B35;
+      --clr-primary-soft: #FF9F1C;
+      --clr-accent:       #FFD166;
+      --clr-safe:         #06D6A0;
+      --clr-text:         #F0F2F8;
+      --clr-text-muted:   #8892a4;
+      --clr-text-dim:     #545d70;
+      --radius-sm:   10px;
+      --radius-md:   16px;
+      --radius-lg:   24px;
+      --shadow-glow: 0 0 40px rgba(255,107,53,0.12), 0 8px 32px rgba(0,0,0,0.45);
+      --ff-head: 'Space Grotesk', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--clr-primary) var(--clr-surface);
+    }
+    html::-webkit-scrollbar { width: 6px; }
+    html::-webkit-scrollbar-track { background: var(--clr-surface); }
+    html::-webkit-scrollbar-thumb { background: var(--clr-primary); border-radius: 3px; }
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.75;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    .bg-mesh {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .bg-mesh::before {
+      content: ''; position: absolute; top: -30%; left: -20%; width: 70vw; height: 70vw;
+      background: radial-gradient(ellipse at center, rgba(255,107,53,0.12) 0%, rgba(255,107,53,0.04) 40%, transparent 70%);
+      border-radius: 50%; animation: driftA 18s ease-in-out infinite alternate;
+    }
+    .bg-mesh::after {
+      content: ''; position: absolute; bottom: -20%; right: -15%; width: 55vw; height: 55vw;
+      background: radial-gradient(ellipse at center, rgba(255,159,28,0.09) 0%, rgba(255,209,102,0.04) 40%, transparent 70%);
+      border-radius: 50%; animation: driftB 22s ease-in-out infinite alternate;
+    }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    @keyframes driftA { from { transform: translate(0,0) scale(1); } to { transform: translate(6%,4%) scale(1.08); } }
+    @keyframes driftB { from { transform: translate(0,0) scale(1); } to { transform: translate(-5%,-3%) scale(1.06); } }
+
+    .shell { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(13,15,20,0.82); border-bottom: 1px solid var(--clr-border); padding: 0 24px;
+    }
+    .topbar-inner { max-width: 860px; margin: 0 auto; height: 64px; display: flex; align-items: center; gap: 12px; }
+    .topbar-logo { width: 32px; height: 32px; flex-shrink: 0; }
+    .topbar-brand { font-family: var(--ff-head); font-size: 1.05rem; font-weight: 700; color: var(--clr-text); letter-spacing: -0.3px; }
+    .topbar-brand span { background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .topbar-pill {
+      margin-left: auto; padding: 4px 14px; border-radius: 100px;
+      background: rgba(255,107,53,0.12); border: 1px solid rgba(255,107,53,0.25);
+      font-size: 0.72rem; font-weight: 600; color: var(--clr-primary); letter-spacing: 0.5px; text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero { padding: 64px 0 40px; text-align: center; }
+    .hero-icon-wrap {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 88px; height: 88px; border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,107,53,0.18), rgba(255,159,28,0.08));
+      border: 1px solid rgba(255,107,53,0.3);
+      box-shadow: 0 0 0 8px rgba(255,107,53,0.05), 0 0 40px rgba(255,107,53,0.15);
+      margin-bottom: 28px; animation: iconPulse 3s ease-in-out infinite;
+    }
+    .hero-icon-wrap svg { width: 46px; height: 46px; }
+    @keyframes iconPulse {
+      0%,100% { box-shadow: 0 0 0 8px rgba(255,107,53,0.05), 0 0 40px rgba(255,107,53,0.15); }
+      50%      { box-shadow: 0 0 0 12px rgba(255,107,53,0.08), 0 0 60px rgba(255,107,53,0.22); }
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px;
+      padding: 5px 14px; border-radius: 100px;
+      background: rgba(255,107,53,0.10); border: 1px solid rgba(255,107,53,0.2);
+      font-size: 0.75rem; font-weight: 600; color: var(--clr-primary-soft); letter-spacing: 1px; text-transform: uppercase;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--clr-primary-soft); animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    .hero h1 {
+      font-family: var(--ff-head); font-size: clamp(2rem,5vw,3rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 16px;
+      background: linear-gradient(135deg, #F0F2F8 20%, rgba(255,107,53,0.9) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { font-size: 1rem; color: var(--clr-text-muted); max-width: 500px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--clr-text-dim); }
+    .hero-meta-item svg { width: 14px; height: 14px; color: var(--clr-primary); }
+
+    /* TOC */
+    .toc-card {
+      background: var(--clr-card); border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 40px; transition: var(--transition);
+    }
+    .toc-card:hover { border-color: var(--clr-border-glow); box-shadow: var(--shadow-glow); }
+    .toc-label {
+      font-family: var(--ff-head); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--clr-primary); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toc-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,107,53,0.3), transparent); }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+    .toc-link {
+      display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.03); border: 1px solid transparent;
+      color: var(--clr-text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: var(--transition);
+    }
+    .toc-link:hover { background: rgba(255,107,53,0.08); border-color: rgba(255,107,53,0.2); color: var(--clr-text); transform: translateX(3px); }
+    .toc-num { font-family: var(--ff-head); font-size: 0.7rem; font-weight: 700; color: var(--clr-primary); background: rgba(255,107,53,0.12); border-radius: 6px; padding: 2px 7px; flex-shrink: 0; }
+
+    /* SECTION CARDS */
+    .section { margin-bottom: 28px; background: var(--clr-card); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); }
+    .section:hover { border-color: var(--clr-border-glow); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+    .section-header {
+      display: flex; align-items: center; gap: 14px; padding: 24px 28px;
+      border-bottom: 1px solid var(--clr-border);
+      background: linear-gradient(90deg, rgba(255,107,53,0.05), transparent);
+    }
+    .section-icon {
+      width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.25rem;
+    }
+    .section-icon.orange { background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.25); }
+    .section-icon.amber  { background: rgba(255,159,28,0.15); border: 1px solid rgba(255,159,28,0.25); }
+    .section-icon.teal   { background: rgba(6,214,160,0.12);  border: 1px solid rgba(6,214,160,0.25); }
+    .section-icon.blue   { background: rgba(88,166,255,0.12); border: 1px solid rgba(88,166,255,0.25); }
+    .section-icon.purple { background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.25); }
+    .section-icon.red    { background: rgba(255,71,71,0.12);  border: 1px solid rgba(255,71,71,0.25); }
+    .section-icon.gold   { background: rgba(255,209,102,0.12);border: 1px solid rgba(255,209,102,0.25); }
+    .section-icon.indigo { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); }
+    .section-icon.green  { background: rgba(34,197,94,0.12);  border: 1px solid rgba(34,197,94,0.25); }
+    .section-icon.sky    { background: rgba(14,165,233,0.12); border: 1px solid rgba(14,165,233,0.25); }
+    .section-title { font-family: var(--ff-head); font-size: 1.05rem; font-weight: 700; color: var(--clr-text); letter-spacing: -0.3px; }
+    .section-num { font-family: var(--ff-head); font-size: 0.68rem; font-weight: 700; color: var(--clr-primary); margin-left: auto; background: rgba(255,107,53,0.1); padding: 3px 10px; border-radius: 100px; letter-spacing: 0.5px; flex-shrink: 0; }
+    .section-body { padding: 24px 28px; }
+    .section-body p { color: var(--clr-text-muted); margin-bottom: 14px; font-size: 0.925rem; line-height: 1.8; }
+    .section-body p:last-child { margin-bottom: 0; }
+    .section-body a { color: var(--clr-primary-soft); text-decoration: none; border-bottom: 1px solid rgba(255,159,28,0.3); transition: var(--transition); }
+    .section-body a:hover { color: var(--clr-accent); border-bottom-color: var(--clr-accent); }
+
+    /* TABLE */
+    .info-table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    .info-table th { text-align: left; font-family: var(--ff-head); font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--clr-primary); padding: 10px 14px; border-bottom: 1px solid var(--clr-border); }
+    .info-table td { font-size: 0.875rem; color: var(--clr-text-muted); padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; line-height: 1.65; }
+    .info-table tr:last-child td { border-bottom: none; }
+    .info-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* TAGS */
+    .tag { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3px; }
+    .tag-required { background: rgba(255,71,71,0.15);  color: #FF7777; border: 1px solid rgba(255,71,71,0.25); }
+    .tag-optional { background: rgba(6,214,160,0.12);  color: #06D6A0; border: 1px solid rgba(6,214,160,0.25); }
+    .tag-local    { background: rgba(88,166,255,0.12); color: #58A6FF; border: 1px solid rgba(88,166,255,0.25); }
+    .tag-external { background: rgba(255,159,28,0.12); color: var(--clr-primary-soft); border: 1px solid rgba(255,159,28,0.25); }
+
+    /* CALLOUTS */
+    .callout { display: flex; gap: 14px; padding: 16px 18px; border-radius: var(--radius-md); margin: 16px 0; font-size: 0.875rem; line-height: 1.7; }
+    .callout-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .callout.info    { background: rgba(88,166,255,0.08);  border: 1px solid rgba(88,166,255,0.2); }
+    .callout.warning { background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.2); }
+    .callout.success { background: rgba(6,214,160,0.08);   border: 1px solid rgba(6,214,160,0.2); }
+    .callout.danger  { background: rgba(255,71,71,0.08);   border: 1px solid rgba(255,71,71,0.2); }
+    .callout.info p    { color: #8ecbff; margin: 0; }
+    .callout.warning p { color: #ffd97d; margin: 0; }
+    .callout.success p { color: #4fe8c5; margin: 0; }
+    .callout.danger p  { color: #ff8888; margin: 0; }
+
+    /* PERMISSION CHIPS */
+    .perm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 14px 0; }
+    .perm-chip { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); transition: var(--transition); }
+    .perm-chip:hover { background: rgba(255,107,53,0.05); border-color: rgba(255,107,53,0.2); }
+    .perm-chip-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .perm-chip-icon.loc { background: rgba(255,107,53,0.15); }
+    .perm-chip-icon.net { background: rgba(88,166,255,0.15); }
+    .perm-chip-icon.vib { background: rgba(168,85,247,0.15); }
+    .perm-chip-title { font-size: 0.82rem; font-weight: 600; color: var(--clr-text); margin-bottom: 3px; }
+    .perm-chip-desc  { font-size: 0.78rem; color: var(--clr-text-muted); line-height: 1.5; }
+
+    /* THIRD-PARTY LIST */
+    .third-party-list { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    .tp-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); transition: var(--transition); flex-wrap: wrap; }
+    .tp-item:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+    .tp-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .tp-name { font-size: 0.875rem; font-weight: 600; color: var(--clr-text); min-width: 160px; }
+    .tp-purpose { font-size: 0.82rem; color: var(--clr-text-muted); flex: 1; min-width: 160px; }
+    .tp-link { font-size: 0.78rem; color: var(--clr-primary); text-decoration: none; white-space: nowrap; border-bottom: 1px solid rgba(255,107,53,0.3); transition: var(--transition); }
+    .tp-link:hover { color: var(--clr-accent); }
+
+    /* CONTACT CARD */
+    .contact-card { display: flex; align-items: center; gap: 20px; padding: 28px 32px; background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,159,28,0.06), rgba(255,209,102,0.04)); border: 1px solid rgba(255,107,53,0.25); border-radius: var(--radius-lg); margin-bottom: 20px; flex-wrap: wrap; }
+    .contact-avatar { width: 56px; height: 56px; border-radius: 18px; background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-soft)); display: flex; align-items: center; justify-content: center; font-family: var(--ff-head); font-weight: 800; font-size: 1.3rem; color: white; flex-shrink: 0; }
+    .contact-info { flex: 1; min-width: 200px; }
+    .contact-name { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; color: var(--clr-text); margin-bottom: 4px; }
+    .contact-company { font-size: 0.82rem; color: var(--clr-primary-soft); margin-bottom: 2px; }
+    .contact-email { font-size: 0.875rem; color: var(--clr-text-muted); }
+    .contact-email a { color: var(--clr-primary-soft); text-decoration: none; transition: var(--transition); }
+    .contact-email a:hover { color: var(--clr-accent); }
+
+    /* FOOTER */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--clr-border), transparent); margin: 40px 0; }
+    .updated-badge { display: inline-flex; align-items: center; gap: 7px; padding: 5px 14px; border-radius: 100px; background: rgba(255,255,255,0.04); border: 1px solid var(--clr-border); font-size: 0.78rem; color: var(--clr-text-dim); }
+    .updated-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--clr-safe); }
+    .footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--clr-border); margin-top: 60px; }
+    .footer-brand { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .footer-brand span { background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .footer-sub { font-size: 0.82rem; color: var(--clr-text-dim); margin-bottom: 20px; }
+    .footer-links { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--clr-text-dim); text-decoration: none; transition: var(--transition); }
+    .footer-links a:hover { color: var(--clr-primary); }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .shell { padding: 0 16px 60px; }
+      .section-header, .section-body { padding: 18px 20px; }
+      .toc-card, .contact-card { padding: 20px; }
+      .info-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar" role="banner">
+  <div class="topbar-inner">
+    <svg class="topbar-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="10" fill="url(#sunGrad)"/>
+      <g stroke="url(#rayGrad)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="24" y1="4"  x2="24" y2="10"/>
+        <line x1="24" y1="38" x2="24" y2="44"/>
+        <line x1="4"  y1="24" x2="10" y2="24"/>
+        <line x1="38" y1="24" x2="44" y2="24"/>
+        <line x1="8.7"  y1="8.7"  x2="13" y2="13"/>
+        <line x1="35"   y1="35"   x2="39.3" y2="39.3"/>
+        <line x1="39.3" y1="8.7"  x2="35"   y2="13"/>
+        <line x1="13"   y1="35"   x2="8.7"  y2="39.3"/>
+      </g>
+      <defs>
+        <linearGradient id="sunGrad" x1="14" y1="14" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF9F1C"/>
+        </linearGradient>
+        <linearGradient id="rayGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FF9F1C"/><stop offset="1" stop-color="#FFD166"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="topbar-brand">UTCI <span>Alert</span></span>
+    <span class="topbar-pill">Privacy Policy</span>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="shell">
+
+    <!-- HERO -->
+    <section class="hero fade-in" aria-labelledby="page-heading">
+      <div class="hero-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="22" r="11" fill="url(#hGrad)"/>
+          <path d="M16 36 Q24 44 32 36" stroke="#FF9F1C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <g stroke="#FFD166" stroke-width="2" stroke-linecap="round" opacity="0.7">
+            <line x1="24" y1="6"  x2="24" y2="9"/>
+            <line x1="24" y1="35" x2="24" y2="38"/>
+            <line x1="7"  y1="22" x2="10" y2="22"/>
+            <line x1="38" y1="22" x2="41" y2="22"/>
+            <line x1="10.6" y1="9.6"  x2="12.7" y2="11.7"/>
+            <line x1="35.3" y1="32.3" x2="37.4" y2="34.4"/>
+            <line x1="37.4" y1="9.6"  x2="35.3" y2="11.7"/>
+            <line x1="12.7" y1="32.3" x2="10.6" y2="34.4"/>
+          </g>
+          <defs>
+            <radialGradient id="hGrad" cx="50%" cy="40%" r="50%">
+              <stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF9F1C"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="hero-eyebrow" aria-label="Document type">Legal Document</div>
+      <h1 id="page-heading">Privacy Policy</h1>
+      <p class="hero-sub">UTCI Alert is built to protect outdoor workers, delivery riders, and farmers from heat stress. We are equally committed to protecting your privacy.</p>
+      <div class="hero-meta" aria-label="Document metadata">
+        <span class="hero-meta-item">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="1" y="2" width="14" height="13" rx="2"/><line x1="1" y1="6" x2="15" y2="6"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg>
+          Effective: October 20, 2026
+        </span>
+        <span class="hero-meta-item">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="8" r="6"/><polyline points="8,4 8,8 11,10"/></svg>
+          Last Updated: October 20, 2026
+        </span>
+        <span class="hero-meta-item">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10L3.5 13L5 8.5L1 5.5H6Z"/></svg>
+          Version 1.0.0
+        </span>
+      </div>
+    </section>
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc-card fade-in" aria-label="Table of contents">
+      <div class="toc-label">Table of Contents</div>
+      <div class="toc-grid">
+        <a href="#overview"       class="toc-link"><span class="toc-num">01</span> Overview</a>
+        <a href="#data-collected" class="toc-link"><span class="toc-num">02</span> Data We Collect</a>
+        <a href="#permissions"    class="toc-link"><span class="toc-num">03</span> App Permissions</a>
+        <a href="#how-we-use"     class="toc-link"><span class="toc-num">04</span> How We Use Data</a>
+        <a href="#data-storage"   class="toc-link"><span class="toc-num">05</span> Data Storage</a>
+        <a href="#third-parties"  class="toc-link"><span class="toc-num">06</span> Third-Party Services</a>
+        <a href="#children"       class="toc-link"><span class="toc-num">07</span> Children's Privacy</a>
+        <a href="#your-rights"    class="toc-link"><span class="toc-num">08</span> Your Rights</a>
+        <a href="#data-security"  class="toc-link"><span class="toc-num">09</span> Data Security</a>
+        <a href="#changes"        class="toc-link"><span class="toc-num">10</span> Policy Changes</a>
+        <a href="#contact"        class="toc-link"><span class="toc-num">11</span> Contact Us</a>
+      </div>
+    </nav>
+
+    <!-- 01 OVERVIEW -->
+    <article id="overview" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon orange" aria-hidden="true">🌡️</div>
+        <h2 class="section-title">Overview</h2>
+        <span class="section-num">01</span>
+      </div>
+      <div class="section-body">
+        <p><strong style="color:var(--clr-text);">HEAT ALARM</strong> ("we", "our", or "the app") is a heat-stress alerting application. It is designed to calculate the Universal Thermal Climate Index (UTCI) in real time and alert outdoor workers, delivery riders, and farmers when conditions become dangerous.</p>
+        <p>This Privacy Policy explains what information the app collects, why it collects it, how it is used, and the choices available to you. By installing or using HEAT ALARM, you agree to the practices described in this document.</p>
+        <div class="callout success">
+          <span class="callout-icon" aria-hidden="true">✅</span>
+          <p><strong>Our core promise:</strong> We do not sell, rent, or trade your personal information to any third party. Data collected is used exclusively to deliver life-saving heat-stress alerts to you.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 DATA WE COLLECT -->
+    <article id="data-collected" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon amber" aria-hidden="true">📊</div>
+        <h2 class="section-title">Data We Collect</h2>
+        <span class="section-num">02</span>
+      </div>
+      <div class="section-body">
+        <p>UTCI Alert is built with a <em>minimal-data</em> philosophy. We collect only what is strictly necessary to compute your local heat-stress index and deliver personalized safety advice.</p>
+        <table class="info-table" aria-label="Data collected by UTCI Alert">
+          <thead>
+            <tr><th>Data Category</th><th>What Is Collected</th><th>Storage</th><th>Required?</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--clr-text);">Location</strong></td>
+              <td>GPS latitude &amp; longitude (used on-device only for UTCI computation)</td>
+              <td><span class="tag tag-local">On-Device</span></td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">City Name</strong></td>
+              <td>Reverse-geocoded city/region name derived from your coordinates</td>
+              <td><span class="tag tag-local">On-Device</span></td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">User Profile</strong></td>
+              <td>Display name, email, and occupational role (worker / rider / farmer) entered during onboarding</td>
+              <td><span class="tag tag-local">On-Device (Hive)</span></td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">Weather Data</strong></td>
+              <td>Temperature, humidity, wind speed, apparent temperature (fetched from open-meteo.com)</td>
+              <td><span class="tag tag-local">On-Device (cached)</span></td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">UTCI Status</strong></td>
+              <td>Computed heat-stress category and UTCI value for your location</td>
+              <td><span class="tag tag-local">On-Device (Hive)</span></td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">App Settings</strong></td>
+              <td>Theme preference, language selection, onboarding completion status</td>
+              <td><span class="tag tag-local">On-Device (Hive)</span></td>
+              <td><span class="tag tag-optional">Optional</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--clr-text);">FCM Token</strong></td>
+              <td>Firebase Cloud Messaging device token (only when push notifications are configured)</td>
+              <td><span class="tag tag-external">Backend Server</span></td>
+              <td><span class="tag tag-optional">Optional</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <p>Your precise GPS coordinates are processed entirely on your device to fetch weather data. Raw coordinates are <strong>never stored permanently</strong> — only the resolved city/region name is saved locally for display purposes.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 PERMISSIONS -->
+    <article id="permissions" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon teal" aria-hidden="true">🔒</div>
+        <h2 class="section-title">App Permissions</h2>
+        <span class="section-num">03</span>
+      </div>
+      <div class="section-body">
+        <p>UTCI Alert requests the following Android permissions. We use only what is necessary for core functionality — no camera, contacts, microphone, or file storage access is ever requested.</p>
+        <div class="perm-grid" aria-label="Required app permissions">
+          <div class="perm-chip">
+            <div class="perm-chip-icon loc" aria-hidden="true">📍</div>
+            <div>
+              <div class="perm-chip-title">ACCESS_FINE_LOCATION</div>
+              <div class="perm-chip-desc">High-precision GPS required for hyperlocal UTCI calculations. Used only when the app is open (foreground only).</div>
+            </div>
+          </div>
+          <div class="perm-chip">
+            <div class="perm-chip-icon loc" aria-hidden="true">🗺️</div>
+            <div>
+              <div class="perm-chip-title">ACCESS_COARSE_LOCATION</div>
+              <div class="perm-chip-desc">Network-based approximate location — used as a fallback when GPS is unavailable.</div>
+            </div>
+          </div>
+          <div class="perm-chip">
+            <div class="perm-chip-icon net" aria-hidden="true">🌐</div>
+            <div>
+              <div class="perm-chip-title">INTERNET</div>
+              <div class="perm-chip-desc">Required to fetch live weather data from Open-Meteo and geocoding data from BigDataCloud.</div>
+            </div>
+          </div>
+          <div class="perm-chip">
+            <div class="perm-chip-icon vib" aria-hidden="true">📳</div>
+            <div>
+              <div class="perm-chip-title">VIBRATE</div>
+              <div class="perm-chip-desc">Tactile haptic feedback when a heat-stress alert fires, ensuring you notice it even in noisy environments.</div>
+            </div>
+          </div>
+        </div>
+        <div class="callout warning">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <p>You may deny location permission at any time via Android Settings. Without location access, UTCI Alert cannot compute your local heat-stress index; however, you may still manually search for a city.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 HOW WE USE DATA -->
+    <article id="how-we-use" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon blue" aria-hidden="true">⚙️</div>
+        <h2 class="section-title">How We Use Your Data</h2>
+        <span class="section-num">04</span>
+      </div>
+      <div class="section-body">
+        <p>All data collected is used exclusively for the following purposes:</p>
+        <table class="info-table" aria-label="Data usage purposes">
+          <thead><tr><th>Purpose</th><th>Data Used</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--clr-text);">Compute UTCI Heat-Stress Index</strong></td><td>GPS location, weather data (temperature, humidity, wind)</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Personalized AI Heat Advice</strong></td><td>UTCI category, occupational role, selected language</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Voice Alerts (Text-to-Speech)</strong></td><td>Alert category, safety suggestion text</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Vibration Alerts</strong></td><td>Alert trigger signal only — no personal data involved</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Geofencing Heat Zones</strong></td><td>GPS coordinates (processed on-device, not transmitted)</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Offline Data Caching</strong></td><td>Weather status, UTCI value, user profile (stored on your device)</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Multi-language Safety Tips</strong></td><td>Language code (English, Urdu, Arabic, Swahili, French, Spanish, Hindi)</td></tr>
+          </tbody>
+        </table>
+        <p>We do <strong style="color:var(--clr-text);">not</strong> use your data for advertising, profiling, analytics platforms, or any purpose beyond the core safety function of the app.</p>
+      </div>
+    </article>
+
+    <!-- 05 DATA STORAGE -->
+    <article id="data-storage" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon purple" aria-hidden="true">💾</div>
+        <h2 class="section-title">Data Storage &amp; Retention</h2>
+        <span class="section-num">05</span>
+      </div>
+      <div class="section-body">
+        <p>UTCI Alert stores your data primarily <strong style="color:var(--clr-text);">on your own device</strong> using Hive — a lightweight offline database. The app is designed to function fully offline once initial data is cached.</p>
+        <table class="info-table" aria-label="Data storage details">
+          <thead><tr><th>Data</th><th>Where Stored</th><th>Retention</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--clr-text);">User Profile</strong></td><td>On-device (Hive user_box)</td><td>Until you uninstall or delete your profile</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">UTCI Status &amp; Weather Cache</strong></td><td>On-device (Hive status_box)</td><td>Overwritten on every app session refresh</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">App Settings</strong></td><td>On-device (Hive settings_box)</td><td>Until you uninstall the app</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">FCM Device Token</strong> (if used)</td><td>Our backend server</td><td>Until you unregister or uninstall the app</td></tr>
+          </tbody>
+        </table>
+        <div class="callout success">
+          <span class="callout-icon" aria-hidden="true">🛡️</span>
+          <p><strong>No cloud account required.</strong> Your profile and heat-stress history never leave your device unless you explicitly share it. We have no access to your Hive-stored data.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06 THIRD-PARTY SERVICES -->
+    <article id="third-parties" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon gold" aria-hidden="true">🔗</div>
+        <h2 class="section-title">Third-Party Services</h2>
+        <span class="section-num">06</span>
+      </div>
+      <div class="section-body">
+        <p>UTCI Alert integrates with the following third-party services solely to provide weather and location data. These services may process your IP address and/or coordinates in accordance with their own privacy policies.</p>
+        <div class="third-party-list" role="list" aria-label="Third-party integrations">
+          <div class="tp-item" role="listitem">
+            <div class="tp-dot" style="background:#58A6FF" aria-hidden="true"></div>
+            <span class="tp-name">Open-Meteo Weather API</span>
+            <span class="tp-purpose">Free, open-source weather API providing temperature, humidity, wind speed, and weather codes for UTCI computation.</span>
+            <a href="https://open-meteo.com/en/terms" class="tp-link" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a>
+          </div>
+          <div class="tp-item" role="listitem">
+            <div class="tp-dot" style="background:#FF9F1C" aria-hidden="true"></div>
+            <span class="tp-name">Open-Meteo Geocoding</span>
+            <span class="tp-purpose">City name search for manual city selection. Sends only the typed city name — no personal data transmitted.</span>
+            <a href="https://open-meteo.com/en/terms" class="tp-link" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a>
+          </div>
+          <div class="tp-item" role="listitem">
+            <div class="tp-dot" style="background:#06D6A0" aria-hidden="true"></div>
+            <span class="tp-name">BigDataCloud Reverse Geocoding</span>
+            <span class="tp-purpose">Converts GPS coordinates to a human-readable city/country name. Coordinates are sent over HTTPS; no API key required.</span>
+            <a href="https://www.bigdatacloud.com/privacy-policy" class="tp-link" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a>
+          </div>
+          <div class="tp-item" role="listitem">
+            <div class="tp-dot" style="background:#EA4335" aria-hidden="true"></div>
+            <span class="tp-name">Firebase Cloud Messaging (FCM)</span>
+            <span class="tp-purpose">Optional push notification delivery for heat alerts. Only a device token is shared — no personal profile data is sent.</span>
+            <a href="https://firebase.google.com/support/privacy" class="tp-link" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a>
+          </div>
+        </div>
+        <div class="callout info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <p>All network requests use HTTPS (TLS). We do not share your name, email, or occupational role with any of the above services. These APIs receive only what is technically necessary: coordinates or a city name.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 07 CHILDREN -->
+    <article id="children" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon red" aria-hidden="true">👶</div>
+        <h2 class="section-title">Children's Privacy</h2>
+        <span class="section-num">07</span>
+      </div>
+      <div class="section-body">
+        <p>UTCI Alert is intended for use by adults and working professionals. The app is <strong style="color:var(--clr-text);">not directed at children under the age of 13</strong> (or the applicable minimum digital age in your jurisdiction).</p>
+        <p>We do not knowingly collect personal information from children. If you believe a child under 13 has provided us with personal data, please contact us immediately and we will promptly delete the information.</p>
+      </div>
+    </article>
+
+    <!-- 08 YOUR RIGHTS -->
+    <article id="your-rights" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon indigo" aria-hidden="true">⚖️</div>
+        <h2 class="section-title">Your Rights &amp; Choices</h2>
+        <span class="section-num">08</span>
+      </div>
+      <div class="section-body">
+        <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+        <table class="info-table" aria-label="User rights">
+          <thead><tr><th>Right</th><th>How to Exercise It</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--clr-text);">Access</strong> — View the data we hold</td><td>Most data is stored on-device in the Hive database and visible within the app's Settings screen.</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Deletion</strong> — Delete your data</td><td>Uninstall the app to remove all on-device Hive data. Contact us to remove any server-side FCM token.</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Correction</strong> — Update your profile</td><td>Update your name, role, and language preference directly inside the app's Settings screen.</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Revoke Permissions</strong></td><td>Revoke location access at any time via Android Settings → Apps → UTCI Alert → Permissions.</td></tr>
+            <tr><td><strong style="color:var(--clr-text);">Opt Out of Notifications</strong></td><td>Disable push notifications via Android Settings → Apps → UTCI Alert → Notifications.</td></tr>
+          </tbody>
+        </table>
+        <p>To exercise any of these rights, please contact us at the address in the <a href="#contact">Contact Us</a> section below.</p>
+      </div>
+    </article>
+
+    <!-- 09 DATA SECURITY -->
+    <article id="data-security" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon green" aria-hidden="true">🔐</div>
+        <h2 class="section-title">Data Security</h2>
+        <span class="section-num">09</span>
+      </div>
+      <div class="section-body">
+        <p>We implement industry-standard measures to protect your data:</p>
+        <ul style="color:var(--clr-text-muted); font-size:0.925rem; padding-left:20px; margin:14px 0; line-height:2;">
+          <li><strong style="color:var(--clr-text);">HTTPS / TLS encryption</strong> on all network requests to weather and geocoding APIs.</li>
+          <li><strong style="color:var(--clr-text);">On-device storage only</strong> — your profile and UTCI history never transit through our servers.</li>
+          <li><strong style="color:var(--clr-text);">No persistent location logging</strong> — GPS coordinates are processed in-memory and discarded after each weather fetch.</li>
+          <li><strong style="color:var(--clr-text);">No cloud sync</strong> — the app functions fully offline with no background data uploads.</li>
+          <li><strong style="color:var(--clr-text);">No third-party analytics SDK</strong> — we do not use Firebase Analytics, Crashlytics, or any advertising network.</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <p>No method of electronic transmission or storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. Keep your Android OS and UTCI Alert up to date.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 POLICY CHANGES -->
+    <article id="changes" class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon sky" aria-hidden="true">📝</div>
+        <h2 class="section-title">Changes to This Policy</h2>
+        <span class="section-num">10</span>
+      </div>
+      <div class="section-body">
+        <p>We may update this Privacy Policy from time to time to reflect changes in our app's functionality, legal requirements, or best practices. When we do:</p>
+        <ul style="color:var(--clr-text-muted); font-size:0.925rem; padding-left:20px; margin:14px 0; line-height:2;">
+          <li>We will update the <strong style="color:var(--clr-text);">"Last Updated"</strong> date at the top of this page.</li>
+          <li>Significant changes may be communicated via an in-app notification.</li>
+          <li>Continued use of the app after the effective date constitutes acceptance of the revised policy.</li>
+        </ul>
+        <p>We recommend reviewing this page periodically. The URL of this policy will remain stable so you can bookmark it.</p>
+      </div>
+    </article>
+
+    <!-- 11 CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" style="font-family:var(--ff-head); font-size:1.1rem; font-weight:700; color:var(--clr-text); margin-bottom:16px; padding-left:4px;">
+        <span style="color:var(--clr-primary);">11.</span> Contact Us
+      </h2>
+      <div class="contact-card fade-in">
+        <div class="contact-avatar" aria-hidden="true">H</div>
+        <div class="contact-info">
+          <div class="contact-name">HEAT ALARM</div>
+          <div class="contact-company">Developer of HEAT ALARM</div>
+          <div class="contact-email">Privacy inquiries: <a href="mailto:privacy@heatalarm.app" id="contact-email-link">privacy@heatalarm.app</a></div>
+        </div>
+      </div>
+      <div class="section fade-in" style="margin-bottom:0;">
+        <div class="section-body">
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out. We will respond to all legitimate requests within <strong style="color:var(--clr-text);">30 business days</strong>.</p>
+          <p>For data deletion requests, please include <strong style="color:var(--clr-text);">"Data Deletion Request – HEAT ALARM"</strong> in the subject line so we can locate and remove your FCM registration record promptly.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    <div style="text-align:center; margin-bottom:16px;">
+      <span class="updated-badge" aria-label="Policy last updated on October 20, 2026">
+        <span class="updated-dot" aria-hidden="true"></span>
+        Last updated: October 20, 2026
+      </span>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-brand">HEAT <span>ALARM</span></div>
+  <div class="footer-sub">Heat-stress protection for outdoor workers · HEAT ALARM</div>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="#main-content" id="footer-top-link">Back to Top</a>
+    <a href="mailto:privacy@heatalarm.app" id="footer-contact-link">Contact</a>
+    <a href="https://play.google.com" id="footer-playstore-link" target="_blank" rel="noopener noreferrer">Google Play</a>
+  </nav>
+  <p style="font-size:0.75rem; color:var(--clr-text-dim); margin-top:20px;">&copy; 2026 HEAT ALARM. All rights reserved.</p>
+</footer>
+
+<script>
+  (function () {
+    'use strict';
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.fade-in').forEach((el, i) => { el.style.transitionDelay = (i * 0.04) + 's'; io.observe(el); });
+
+    const sio = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.toc-link').forEach((l) => l.style.color = '');
+          const a = document.querySelector('.toc-link[href="#' + e.target.id + '"]');
+          if (a) a.style.color = 'var(--clr-primary-soft)';
+        }
+      }),
+      { threshold: 0.4 }
+    );
+    document.querySelectorAll('article[id], section[id]').forEach((s) => sio.observe(s));
+  })();
+</script>
+
+</body>
+</html>
